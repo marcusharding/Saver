@@ -7,16 +7,19 @@ import ProfileIcon from '../partials/profileIcon';
 import AccountBalance from '../partials/accountBalance';
 import NewTransactionIcon from '../partials/newTransactionIcon';
 import RecentTransactions from '../partials/recentTransactions';
+import NewTransaction from '../modals/newTransaction';
 
 // Styles
 import {base, typography, spacing} from '../../styles/main';
 
 class CurrentAccount extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       balance: 0,
+      transactions: props.data.saverData.transactions,
+      modalVisible: false,
     };
   }
 
@@ -46,10 +49,9 @@ class CurrentAccount extends Component {
   }
 
   render() {
-    const {data} = this.props;
+    const {data, navigation} = this.props;
     const {saverData} = data;
-    const {transactions} = saverData;
-    const {balance} = this.state;
+    const {balance, transactions} = this.state;
 
     return (
       <View style={spacing.flex1}>
@@ -59,7 +61,7 @@ class CurrentAccount extends Component {
         </View>
         <AccountBalance balance={balance} overdraft={saverData.overdraft} />
         <RecentTransactions transactions={transactions} />
-        <NewTransactionIcon />
+        <NewTransactionIcon navigation={navigation} />
       </View>
     );
   }

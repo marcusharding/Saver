@@ -48,6 +48,15 @@ const base = StyleSheet.create({
     right: 0,
     marginBottom: 20,
   },
+
+  buttonContainer: {
+    elevation: 8,
+    width: '100%',
+    backgroundColor: '#03DAC6',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+  },
 });
 
 const typography = StyleSheet.create({
@@ -86,6 +95,14 @@ const typography = StyleSheet.create({
   overDraft: {
     fontSize: 16,
   },
+
+  buttonText: {
+    fontSize: 18,
+    color: '#000000',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+  },
 });
 
 const partials = StyleSheet.create({
@@ -121,6 +138,37 @@ const spacing = StyleSheet.create({
   marginBottom100: {
     marginBottom: 100,
   },
+
+  marginTop20: {
+    marginTop: 20,
+  },
 });
 
-export {base, typography, partials, spacing, appTheme};
+const form = StyleSheet.create({
+  input: {
+    width: '100%',
+    marginBottom: 25,
+    paddingBottom: 15,
+    alignSelf: 'center',
+    borderColor: '#fff',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingLeft: 25,
+    paddingTop: 15,
+    color: '#EFEFEF',
+  },
+
+  inputText: {
+    color: '#D1D1D1',
+    marginTop: 25,
+    fontSize: 16,
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Regular',
+  },
+
+  inputTextSpan: {
+    color: '#34FFC8',
+  },
+});
+
+export {base, typography, partials, spacing, appTheme, form};

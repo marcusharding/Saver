@@ -2,17 +2,22 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {CommonActions} from '@react-navigation/native';
 
 // Styles
 import {base} from '../../styles/main';
 
-const NewTransactionIcon = () => {
+const NewTransactionIcon = ({navigation}) => {
   return (
     <TouchableOpacity
       style={base.NewTransactionIcon}
       activeOpacity={0.8}
       onPress={() => {
-        console.log('icon pressed');
+        navigation.dispatch(
+          CommonActions.navigate({
+            name: 'NewTransactionModal',
+          }),
+        );
       }}>
       <MaterialCommunityIcons
         name={'plus-circle'}

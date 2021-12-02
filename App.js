@@ -1,11 +1,14 @@
 // React
 import React, {useState, useEffect} from 'react';
+import {Platform} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
+import BackgroundColor from 'react-native-background-color';
 
 // Screens
 import CurrentAccount from './src/components/screens/currentAccount';
+import NewTransaction from './src/components/modals/newTransaction';
 
 // Partials
 import PreLoader from './src/components/partials/preLoader';
@@ -25,6 +28,9 @@ const App = () => {
 
   useEffect(() => {
     SplashScreen.hide();
+    if (Platform.OS === 'android') {
+      BackgroundColor.setColor('#121212');
+    }
     fetchData('https://jsonkeeper.com/b/QE3L').then(response => {
       setData(response);
     }, setInitializing(false));
@@ -40,6 +46,9 @@ const App = () => {
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="CurrentAccountScreen">
             {props => <CurrentAccount data={data} {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="NewTransactionModal">
+            {props => <NewTransaction {...props} />}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
