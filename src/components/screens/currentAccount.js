@@ -15,15 +15,30 @@ class CurrentAccount extends Component {
   constructor() {
     super();
 
-    this.setState = {
-      accountBalance: null,
+    this.state = {
+      balance: 0,
     };
   }
 
   calculateAccountBalance() {
     const {data} = this.props;
     const {saverData} = data;
-    console.log(saverData);
+    const {transactions} = saverData;
+    let balance = this.state.balance;
+
+    transactions.map((transaction, index) => {
+      if (transaction.type === 'deposit') {
+        balance = balance + transaction.amount;
+      } else {
+        balance = balance - transaction.amount;
+      }
+
+      if (index + 1 === transactions.length) {
+        this.setState({
+          balance: balance,
+        });
+      }
+    });
   }
 
   componentDidMount() {
@@ -33,6 +48,7 @@ class CurrentAccount extends Component {
   render() {
     const {data} = this.props;
     const {saverData} = data;
+    const {balance} = this.state;
 
     return (
       <View style={spacing.flex1}>
@@ -40,10 +56,7 @@ class CurrentAccount extends Component {
           <Text style={typography.screenHeading}>Current Account</Text>
           <ProfileIcon />
         </View>
-        <AccountBalance
-          balance={saverData.balance}
-          overdraft={saverData.overdraft}
-        />
+        <AccountBalance balance={balance} overdraft={saverData.overdraft} />
         <RecentTransactions />
         <NewTransactionIcon />
       </View>
