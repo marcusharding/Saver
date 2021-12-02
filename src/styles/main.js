@@ -1,5 +1,15 @@
 import {StyleSheet} from 'react-native';
 
+const appTheme = {
+  colors: {
+    primary: '',
+    background: '#121212',
+    card: '#111111',
+    text: '#ffffff',
+    notification: 'rgb(255, 69, 58)',
+  },
+};
+
 const base = StyleSheet.create({
   flexContainer: {
     flex: 1,
@@ -27,8 +37,16 @@ const base = StyleSheet.create({
   profileIcon: {
     marginLeft: 'auto',
     borderRadius: 100,
+    marginTop: 15,
     width: 35,
     height: 35,
+  },
+
+  NewTransactionIcon: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    marginBottom: 20,
   },
 });
 
@@ -70,4 +88,10 @@ const partials = StyleSheet.create({
   },
 });
 
-export {base, typography, partials};
+const spacing = StyleSheet.create({
+  flex1: {
+    flex: 1,
+  },
+});
+
+export {base, typography, partials, spacing, appTheme};

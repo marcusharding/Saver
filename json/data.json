@@ -1,29 +1,49 @@
 {
     "saverData": {
-        "balance": "2,000",
-        "overdraft": 250,
-        "deposits": [
+        "balance": "£2,000",
+        "overdraft": "£250",
+        "transactions": [
             {
-                "data": "01/11/2021",
-                "amount": 500
+                "type": "deposit",
+                "description": "Money for gig tickets",
+                "date": "01/11/2021",
+                "amount": "£60"
             },
             {
-                "data": "05/11/2021",
-                "amount": 2000
+                "type": "withdrawel",
+                "description": "Meal out",
+                "date": "30/10/2021",
+                "amount": "£49.99"
             },
             {
-                "data": "10/11/2021",
-                "amount": 500
-            }
-        ],
-        "withdrawels": [
-            {
-                "data": "15/11/2021",
-                "amount": 500
+                "type": "withdrawel",
+                "description": "Random Amazon purchase",
+                "date": "25/10/2021",
+                "amount": "£7.50"
             },
             {
-                "data": "20/11/2021",
-                "amount": 500
+                "type": "deposit",
+                "description": "Birthday money from mum",
+                "date": "15/10/2021",
+                "amount": "£500"
+            },
+            {
+                "type": "deposit",
+                "description": "Birthday money from dad",
+                "date": "15/10/2021",
+                "amount": "£500"
+            },
+            {
+                "type": "withdrawel",
+                "description": "Money for PS5",
+                "date": "10/10/2021",
+                "amount": "£502.51"
+            },
+            {
+                "type": "deposit",
+                "description": "Wage payment",
+                "date": "30/09/2021",
+                "amount": "£1500"
             }
         ]
     }
