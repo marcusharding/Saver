@@ -15,10 +15,10 @@ const RecentTransactions = ({transactions}) => {
   });
 
   return (
-    <View style={spacing.marginBottom50}>
+    <View style={spacing.flex1}>
       <Text style={typography.balance}>Recent Transactions</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {transactions}
+        <View style={spacing.marginBottom100}>{transactions}</View>
       </ScrollView>
     </View>
   );

@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    fetchData('https://jsonkeeper.com/b/47W8').then(response => {
+    fetchData('https://jsonkeeper.com/b/QE3L').then(response => {
       setData(response);
     }, setInitializing(false));
   }, [setInitializing]);

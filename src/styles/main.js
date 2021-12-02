@@ -117,6 +117,10 @@ const spacing = StyleSheet.create({
   marginBottom50: {
     marginBottom: 50,
   },
+
+  marginBottom100: {
+    marginBottom: 100,
+  },
 });
 
 export {base, typography, partials, spacing, appTheme};
