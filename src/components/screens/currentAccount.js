@@ -48,6 +48,7 @@ class CurrentAccount extends Component {
   render() {
     const {data} = this.props;
     const {saverData} = data;
+    const {transactions} = saverData;
     const {balance} = this.state;
 
     return (
@@ -57,7 +58,7 @@ class CurrentAccount extends Component {
           <ProfileIcon />
         </View>
         <AccountBalance balance={balance} overdraft={saverData.overdraft} />
-        <RecentTransactions />
+        <RecentTransactions transactions={transactions} />
         <NewTransactionIcon />
       </View>
     );

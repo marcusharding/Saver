@@ -65,9 +65,22 @@ const typography = StyleSheet.create({
   },
 
   balanceNumber: {
-    color: '#34FFC8',
     fontSize: 20,
     marginBottom: 20,
+  },
+
+  positiveBalance: {
+    color: '#34FFC8',
+  },
+
+  negativeBalance: {
+    color: '#FF0000',
+  },
+
+  transactionDescription: {
+    fontSize: 15,
+    marginBottom: 5,
+    color: '#FAF9F6',
   },
 
   overDraft: {
@@ -91,6 +104,18 @@ const partials = StyleSheet.create({
 const spacing = StyleSheet.create({
   flex1: {
     flex: 1,
+  },
+
+  marginBottom10: {
+    marginBottom: 10,
+  },
+
+  marginBottom20: {
+    marginBottom: 20,
+  },
+
+  marginBottom50: {
+    marginBottom: 50,
   },
 });
 
