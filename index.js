@@ -6,9 +6,12 @@ import {name as appName} from './app.json';
 // Screens
 import App from './App';
 
+// Styles
+import {base} from './src/styles/main';
+
 const Index = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={base.safeAreaView}>
       <App />
     </SafeAreaView>
   );

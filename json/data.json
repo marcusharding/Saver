@@ -1,0 +1,30 @@
+{
+    "saverData": {
+        "balance": "2,000",
+        "overdraft": 250,
+        "deposits": [
+            {
+                "data": "01/11/2021",
+                "amount": 500
+            },
+            {
+                "data": "05/11/2021",
+                "amount": 2000
+            },
+            {
+                "data": "10/11/2021",
+                "amount": 500
+            }
+        ],
+        "withdrawels": [
+            {
+                "data": "15/11/2021",
+                "amount": 500
+            },
+            {
+                "data": "20/11/2021",
+                "amount": 500
+            }
+        ]
+    }
+}
