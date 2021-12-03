@@ -36,7 +36,7 @@ const Transaction = ({transaction}) => {
     'November',
     'December',
   ];
-  const date = new Date(transaction.date);
+  const date = transaction.date;
   const day = ordinal_suffix_of(date.getDate());
   const month = date.getMonth();
   const formattedDate = day + ' ' + months[month];

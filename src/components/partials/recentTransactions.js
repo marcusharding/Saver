@@ -10,7 +10,13 @@ import {typography, spacing} from '../../styles/main';
 import Transaction from './transaction';
 
 const RecentTransactions = ({transactions}) => {
-  transactions = transactions.map((transaction, index) => {
+  transactions.map((transaction, index) => {
+    transaction.date = new Date(transaction.date);
+  });
+
+  const sortedTransactions = transactions.sort((a, b) => b.date - a.date);
+
+  transactions = sortedTransactions.map((transaction, index) => {
     return <Transaction key={index} transaction={transaction} />;
   });
 
