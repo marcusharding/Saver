@@ -35,10 +35,6 @@ const NewTransaction = props => {
   const onPressAddTransaction = () => {
     if (type && amount && date && description) {
       if (typeCheckNewTransaction(amount, date, description)) {
-        Alert.alert(
-          'Transaction added:',
-          `${type} £${amount} ${date} ${description}`,
-        );
         navigation.dispatch(
           CommonActions.navigate({
             name: 'CurrentAccountScreen',

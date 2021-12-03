@@ -1,6 +1,6 @@
 // React
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 
 // Partials
 import ProfileIcon from '../partials/profileIcon';
@@ -26,7 +26,6 @@ class CurrentAccount extends Component {
     this.state = {
       balance: 0,
       transactions: props.data.saverData.transactions,
-      modalVisible: false,
     };
   }
 
@@ -41,27 +40,29 @@ class CurrentAccount extends Component {
     });
   }
 
-  setUpdatedAccountBalance(type, amount) {
-    const {balance} = this.state;
+  setUpdatedAccountBalance(type, amount, date, description) {
+    const {balance, transactions} = this.state;
+    const {data} = this.props;
+    const {saverData} = data;
+    const {overdraft, goalBalance} = saverData;
+    const updatedBalance = getUpdatedAccountBalance(
+      type,
+      amount,
+      balance,
+      overdraft,
+      goalBalance,
+    );
 
-    this.setState({
-      balance: getUpdatedAccountBalance(type, amount, balance),
-    });
-  }
-
-  setUpdatedTransactions(type, amount, date, description) {
-    const {transactions} = this.state;
-    // this.setState({
-    //   transactions: getUpdatedTransactions(
-    //     type,
-    //     amount,
-    //     date,
-    //     description,
-    //     transactions,
-    //   ),
-    // });
-
-    getUpdatedTransactions(type, amount, date, description, transactions);
+    if (updatedBalance) {
+      this.setState({
+        balance: updatedBalance,
+      });
+      getUpdatedTransactions(type, amount, date, description, transactions);
+      Alert.alert(
+        'Transaction added:',
+        `${type} £${amount} ${date} ${description}`,
+      );
+    }
   }
 
   componentDidMount() {
@@ -74,8 +75,7 @@ class CurrentAccount extends Component {
 
       if (params) {
         const {type, amount, date, description} = params;
-        this.setUpdatedAccountBalance(type, amount);
-        this.setUpdatedTransactions(type, amount, date, description);
+        this.setUpdatedAccountBalance(type, amount, date, description);
       }
     });
   }

@@ -22,7 +22,7 @@ const AccountBalance = ({balance, overdraft}) => {
       </View>
       <View style={base.flexContainerRow}>
         <Text style={typography.overDraft}>Overdraft</Text>
-        <Text style={typography.overDraft}>{overdraft}</Text>
+        <Text style={typography.overDraft}>£{overdraft}</Text>
       </View>
     </View>
   );

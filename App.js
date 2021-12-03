@@ -32,7 +32,7 @@ const App = () => {
     if (Platform.OS === 'android') {
       BackgroundColor.setColor('#121212');
     }
-    fetchData('https://jsonkeeper.com/b/QE3L').then(response => {
+    fetchData('https://jsonkeeper.com/b/YTHA').then(response => {
       setData(response);
     }, setInitializing(false));
   }, [setInitializing]);

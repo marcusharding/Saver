@@ -2,29 +2,49 @@
 import {Alert} from 'react-native';
 
 export const calculateAccountBalance = (balance, transactions) => {
-  let currentBalance = balance;
+  let updatedBalance = balance;
 
   transactions.map(transaction => {
     if (transaction.type === 'deposit') {
-      currentBalance = parseFloat(currentBalance) + parseFloat(transaction.amount);
+      updatedBalance = parseFloat(updatedBalance) + parseFloat(transaction.amount);
     } else {
-      currentBalance = parseFloat(currentBalance) - parseFloat(transaction.amount);
+      updatedBalance = parseFloat(updatedBalance) - parseFloat(transaction.amount);
     }
   });
 
-  return currentBalance;
+  return updatedBalance;
 };
 
-export const getUpdatedAccountBalance = (type, amount, balance) => {
-  let currentBalance = balance;
+export const getUpdatedAccountBalance = (
+  type,
+  amount,
+  balance,
+  overDraft,
+  goalBalance,
+) => {
+  let updatedBalance = balance;
 
   if (type === 'deposit') {
-    currentBalance = parseFloat(currentBalance) + parseFloat(amount);
+    if (
+      checkBalanceAmount(
+        parseFloat(updatedBalance) - parseFloat(amount),
+        goalBalance,
+      )
+    ) {
+      updatedBalance = parseFloat(updatedBalance) + parseFloat(amount);
+    }
   } else {
-    currentBalance = parseFloat(currentBalance) - parseFloat(amount);
+    if (
+      checkBalanceAmount(
+        parseFloat(updatedBalance) - parseFloat(amount),
+        overDraft,
+      )
+    ) {
+      updatedBalance = parseFloat(updatedBalance) - parseFloat(amount);
+    }
   }
 
-  return currentBalance;
+  return updatedBalance;
 };
 
 export const typeCheckNewTransaction = (amount, date, description) => {
@@ -77,4 +97,33 @@ const validateDate = date => {
   }
 
   return d.toISOString().slice(0, 10) === date;
+};
+
+const checkBalanceAmount = (updatedBalance, overDraft, goalBalance) => {
+  const negativeOverdraft = -Math.abs(overDraft);
+
+  console.log(goalBalance);
+
+  // Check if new balance is > allowed overdraft
+  if (negativeOverdraft > updatedBalance) {
+    Alert.alert(
+      'Sorry you are not allowed to withdraw more than your agreed overdraft',
+    );
+    return false;
+  }
+
+  // Check if new balance is overdrawn
+  if (updatedBalance < 0) {
+    Alert.alert('You have now entered your agreed overdraft');
+  }
+
+  // Check if balance is >= saving goal
+  if (updatedBalance >= goalBalance) {
+    console.log('you have hit your goal');
+    Alert.alert(
+      `Congrats you've reached your goal of £${goalBalance} you money saving legend!`,
+    );
+  }
+
+  return true;
 };
