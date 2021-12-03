@@ -33,6 +33,9 @@ export const getUpdatedAccountBalance = (
       )
     ) {
       updatedBalance = parseFloat(updatedBalance) + parseFloat(amount);
+    } else {
+      // If balance checks fail, return false to stop updating function running
+      updatedBalance = false;
     }
   } else {
     if (
@@ -43,6 +46,9 @@ export const getUpdatedAccountBalance = (
       )
     ) {
       updatedBalance = parseFloat(updatedBalance) - parseFloat(amount);
+    } else {
+      // If balance checks fail, return false to stop updating functionr running
+      updatedBalance = false;
     }
   }
 
