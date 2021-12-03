@@ -7,7 +7,6 @@ import ProfileIcon from '../partials/profileIcon';
 import AccountBalance from '../partials/accountBalance';
 import NewTransactionIcon from '../partials/newTransactionIcon';
 import RecentTransactions from '../partials/recentTransactions';
-import NewTransaction from '../modals/newTransaction';
 
 // Styles
 import {base, typography, spacing} from '../../styles/main';
@@ -29,6 +28,7 @@ class CurrentAccount extends Component {
     };
   }
 
+  // Set initial account balance
   setAccountBalance() {
     const {balance} = this.state;
     const {data} = this.props;
@@ -40,6 +40,7 @@ class CurrentAccount extends Component {
     });
   }
 
+  // Set the updated account balance after a transaction
   setUpdatedAccountBalance(type, amount, date, description) {
     const {balance, transactions} = this.state;
     const {data} = this.props;

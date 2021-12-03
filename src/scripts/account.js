@@ -26,6 +26,7 @@ export const getUpdatedAccountBalance = (
 
   if (type === 'deposit') {
     if (
+      // Check acount balance against different conditions
       checkBalanceAmount(
         parseFloat(updatedBalance) - parseFloat(amount),
         goalBalance,
@@ -35,6 +36,7 @@ export const getUpdatedAccountBalance = (
     }
   } else {
     if (
+      // Check acount balance against different conditions
       checkBalanceAmount(
         parseFloat(updatedBalance) - parseFloat(amount),
         overDraft,
@@ -47,6 +49,7 @@ export const getUpdatedAccountBalance = (
   return updatedBalance;
 };
 
+// Type checks for each field of a new transaction so nonsense cant be entered
 export const typeCheckNewTransaction = (amount, date, description) => {
   if (isNaN(amount)) {
     Alert.alert('Amount must be a number');
@@ -66,6 +69,7 @@ export const typeCheckNewTransaction = (amount, date, description) => {
   return true;
 };
 
+// Push a new transaction thats passed type checks to the transactions array
 export const getUpdatedTransactions = (
   type,
   amount,
@@ -83,6 +87,7 @@ export const getUpdatedTransactions = (
   return transactions.push(newTransaction);
 };
 
+// Validate that an entered date is in yyyy-mm-dd format
 const validateDate = date => {
   const regEx = /^\d{4}-\d{2}-\d{2}$/;
   const d = new Date(date);
@@ -99,10 +104,10 @@ const validateDate = date => {
   return d.toISOString().slice(0, 10) === date;
 };
 
+// Checks on the account balance to either stop user going too overdraft
+// or alert the user of significant balance changes
 const checkBalanceAmount = (updatedBalance, overDraft, goalBalance) => {
   const negativeOverdraft = -Math.abs(overDraft);
-
-  console.log(goalBalance);
 
   // Check if new balance is > allowed overdraft
   if (negativeOverdraft > updatedBalance) {

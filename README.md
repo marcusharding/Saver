@@ -20,7 +20,7 @@ Get real data for the app:
 - If the hosted json file has expired or not working then please copy this json found within json/data.json
 - Paste the data and host at https://jsonkeeper.com/
 - Copy the url that your json is now hosted at
-- Paste this url into the empty string of the 'fetchData' function found within App.js (Line 21)
+- Paste this url into the empty string of the 'fetchData' function found within App.js (Line 36)
 
 Running the app on your device / simulator:
 

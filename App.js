@@ -32,6 +32,7 @@ const App = () => {
     if (Platform.OS === 'android') {
       BackgroundColor.setColor('#121212');
     }
+    // Insert link to hosted json data here
     fetchData('https://jsonkeeper.com/b/YTHA').then(response => {
       setData(response);
     }, setInitializing(false));
