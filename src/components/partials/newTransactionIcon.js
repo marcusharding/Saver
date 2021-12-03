@@ -7,7 +7,9 @@ import {CommonActions} from '@react-navigation/native';
 // Styles
 import {base} from '../../styles/main';
 
-const NewTransactionIcon = ({navigation}) => {
+const NewTransactionIcon = props => {
+  const {addNewTransaction, navigation} = props;
+
   return (
     <TouchableOpacity
       style={base.NewTransactionIcon}

@@ -1,12 +1,12 @@
 // React
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   TextInput,
   View,
   Text,
   TouchableOpacity,
-  Alert,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 
@@ -18,16 +18,43 @@ import GoBackIcon from '../partials/goBackIcon';
 import DropDownSelector from '../partials/dropDownPicker';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-const NewTransaction = (props, {modalVisible}) => {
-  const [amount, setAmount] = useState('0');
-  const [date, setDate] = useState('');
-  const [description, setDescription] = useState('');
+// Scripts
+import {typeCheckNewTransaction} from '../../scripts/account';
+
+const NewTransaction = props => {
   const [type, setType] = useState(null);
+  const [amount, setAmount] = useState(null);
+  const [date, setDate] = useState(null);
+  const [description, setDescription] = useState(null);
   const [types, setTypes] = useState([
     {label: 'Deposit', value: 'deposit'},
     {label: 'Withdrawel', value: 'withdrawel'},
   ]);
   const {navigation} = props;
+
+  const onPressAddTransaction = () => {
+    if (type && amount && date && description) {
+      if (typeCheckNewTransaction(amount, date, description)) {
+        Alert.alert(
+          'Transaction added:',
+          `${type} £${amount} ${date} ${description}`,
+        );
+        navigation.dispatch(
+          CommonActions.navigate({
+            name: 'CurrentAccountScreen',
+            params: {
+              type: type,
+              amount: amount,
+              date: date,
+              description: description,
+            },
+          }),
+        );
+      }
+    } else {
+      Alert.alert('Please ensure all fields are filled in');
+    }
+  };
 
   return (
     <SafeAreaView style={spacing.flex1}>
@@ -35,7 +62,7 @@ const NewTransaction = (props, {modalVisible}) => {
         <Text style={typography.screenHeading}>New Transaction</Text>
         <GoBackIcon navigation={navigation} />
       </View>
-      <Text style={[spacing.marginBottom20, typography.overDraft]}>
+      <Text style={[spacing.marginBottom10, typography.overDraft]}>
         Transaction type
       </Text>
       <View style={spacing.marginBottom20}>
@@ -47,7 +74,7 @@ const NewTransaction = (props, {modalVisible}) => {
         />
       </View>
       <ScrollView>
-        <Text style={[spacing.marginBottom20, typography.overDraft]}>
+        <Text style={[spacing.marginBottom10, typography.overDraft]}>
           Amount
         </Text>
         <TextInput
@@ -59,17 +86,17 @@ const NewTransaction = (props, {modalVisible}) => {
           }}
           placeholderTextColor="#EFEFEF"
         />
-        <Text style={[spacing.marginBottom20, typography.overDraft]}>Date</Text>
+        <Text style={[spacing.marginBottom10, typography.overDraft]}>Date</Text>
         <TextInput
           style={form.input}
-          placeholder={'2021-09-30'}
+          placeholder={'yyyy-mm-dd'}
           value={date}
           onChangeText={value => {
             setDate(value);
           }}
           placeholderTextColor="#EFEFEF"
         />
-        <Text style={[spacing.marginBottom20, typography.overDraft]}>
+        <Text style={[spacing.marginBottom10, typography.overDraft]}>
           Short description
         </Text>
         <TextInput
@@ -83,7 +110,7 @@ const NewTransaction = (props, {modalVisible}) => {
         />
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => console.log('button pressed')}
+          onPress={() => onPressAddTransaction()}
           style={[
             base.buttonContainer,
             spacing.marginTop20,

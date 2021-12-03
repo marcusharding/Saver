@@ -18,6 +18,7 @@ import {appTheme} from './src/styles/main';
 
 // Scripts
 import {fetchData} from './src/scripts/data';
+import {addNewTransaction} from './src/scripts/account';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -48,7 +49,12 @@ const App = () => {
             {props => <CurrentAccount data={data} {...props} />}
           </Stack.Screen>
           <Stack.Screen name="NewTransactionModal">
-            {props => <NewTransaction {...props} />}
+            {props => (
+              <NewTransaction
+                addNewTransaction={addNewTransaction}
+                {...props}
+              />
+            )}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>

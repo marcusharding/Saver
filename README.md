@@ -15,14 +15,17 @@ yarn install
 ```python
 Get real data for the app:
 
-- Copy the json data found within json/data.json
+- There is a data.json file located within json/ at the project root
+- This file is hosted at https://jsonkeeper.com/ and defined in app ready to pull in data
+- If the hosted json file has expired or not working then please copy this json found within json/data.json
 - Paste the data and host at https://jsonkeeper.com/
-- Copy the url your json is now hosted at
+- Copy the url that your json is now hosted at
 - Paste this url into the empty string of the 'fetchData' function found within App.js (Line 21)
 
 Running the app on your device / simulator:
 
-- At the project root type yarn run 'android' or 'ios' for either device
+- Make sure you have either a device plugged in with debugging enabled or a xcode / android studio installed to be able to run a device simulator
+- At the project repo root type yarn run 'android' or 'ios' for either device in to the terminal
 - The app should build and pull in the data hosted by jsonkeeper
 - Enjoy
 ```

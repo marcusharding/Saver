@@ -12,6 +12,13 @@ import NewTransaction from '../modals/newTransaction';
 // Styles
 import {base, typography, spacing} from '../../styles/main';
 
+// Scripts
+import {
+  calculateAccountBalance,
+  getUpdatedTransactions,
+  getUpdatedAccountBalance,
+} from '../../scripts/account';
+
 class CurrentAccount extends Component {
   constructor(props) {
     super();
@@ -23,29 +30,58 @@ class CurrentAccount extends Component {
     };
   }
 
-  calculateAccountBalance() {
+  setAccountBalance() {
+    const {balance} = this.state;
     const {data} = this.props;
     const {saverData} = data;
     const {transactions} = saverData;
-    let balance = this.state.balance;
 
-    transactions.map((transaction, index) => {
-      if (transaction.type === 'deposit') {
-        balance = balance + transaction.amount;
-      } else {
-        balance = balance - transaction.amount;
-      }
+    this.setState({
+      balance: calculateAccountBalance(balance, transactions),
+    });
+  }
 
-      if (index + 1 === transactions.length) {
-        this.setState({
-          balance: balance,
-        });
+  setUpdatedAccountBalance(type, amount) {
+    const {balance} = this.state;
+
+    this.setState({
+      balance: getUpdatedAccountBalance(type, amount, balance),
+    });
+  }
+
+  setUpdatedTransactions(type, amount, date, description) {
+    const {transactions} = this.state;
+    // this.setState({
+    //   transactions: getUpdatedTransactions(
+    //     type,
+    //     amount,
+    //     date,
+    //     description,
+    //     transactions,
+    //   ),
+    // });
+
+    getUpdatedTransactions(type, amount, date, description, transactions);
+  }
+
+  componentDidMount() {
+    const {navigation} = this.props;
+
+    this.setAccountBalance();
+    this.screenNavigated = navigation.addListener('focus', () => {
+      const {route} = this.props;
+      const {params} = route;
+
+      if (params) {
+        const {type, amount, date, description} = params;
+        this.setUpdatedAccountBalance(type, amount);
+        this.setUpdatedTransactions(type, amount, date, description);
       }
     });
   }
 
-  componentDidMount() {
-    this.calculateAccountBalance();
+  componentWillUnmount() {
+    this.screenNavigated();
   }
 
   render() {
@@ -61,7 +97,10 @@ class CurrentAccount extends Component {
         </View>
         <AccountBalance balance={balance} overdraft={saverData.overdraft} />
         <RecentTransactions transactions={transactions} />
-        <NewTransactionIcon navigation={navigation} />
+        <NewTransactionIcon
+          addNewTransaction={this.addNewTransaction}
+          navigation={navigation}
+        />
       </View>
     );
   }
