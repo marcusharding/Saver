@@ -76,7 +76,15 @@ class CurrentAccount extends Component {
 
       if (params) {
         const {type, amount, date, description} = params;
-        this.setUpdatedAccountBalance(type, amount, date, description);
+        if (type && amount && date && description) {
+          this.setUpdatedAccountBalance(type, amount, date, description);
+          navigation.setParams({
+            type: null,
+            amount: null,
+            date: null,
+            description: null,
+          });
+        }
       }
     });
   }
