@@ -99,7 +99,7 @@ class CurrentAccount extends Component {
     const {balance, transactions} = this.state;
 
     return (
-      <View style={spacing.flex1}>
+      <View style={[spacing.flex1, base.iosMargin]}>
         <View style={base.flexContainerRow}>
           <Text style={typography.screenHeading}>Current Account</Text>
           <ProfileIcon />

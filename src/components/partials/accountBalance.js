@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 // Styles
-import {base, partials, typography} from '../../styles/main';
+import {base, partials, typography, colors} from '../../styles/main';
 
 const AccountBalance = ({balance, overdraft}) => {
   const formattedBalance = '£' + balance.toString();
@@ -21,8 +21,10 @@ const AccountBalance = ({balance, overdraft}) => {
         </Text>
       </View>
       <View style={base.flexContainerRow}>
-        <Text style={typography.overDraft}>Overdraft</Text>
-        <Text style={typography.overDraft}>£{overdraft}</Text>
+        <Text style={[typography.overDraft, colors.lightGrey]}>Overdraft</Text>
+        <Text style={[typography.overDraft, colors.lightGrey]}>
+          £{overdraft}
+        </Text>
       </View>
     </View>
   );
