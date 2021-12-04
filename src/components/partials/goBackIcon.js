@@ -11,6 +11,7 @@ const GoBackIcon = ({navigation}) => {
     <TouchableOpacity style={spacing.marginTop20} activeOpacity={0.8}>
       <MaterialCommunityIcons
         name={'close'}
+        color={'#FAF9F6'}
         size={35}
         onPress={() => navigation.goBack()}
       />

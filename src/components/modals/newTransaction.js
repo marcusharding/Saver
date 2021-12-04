@@ -11,7 +11,7 @@ import {
 import {CommonActions} from '@react-navigation/native';
 
 // Styles
-import {base, typography, form, spacing} from '../../styles/main';
+import {base, typography, form, spacing, colors} from '../../styles/main';
 
 // Partials
 import GoBackIcon from '../partials/goBackIcon';
@@ -53,12 +53,13 @@ const NewTransaction = props => {
   };
 
   return (
-    <SafeAreaView style={spacing.flex1}>
+    <SafeAreaView style={[spacing.flex1, base.iosMargin]}>
       <View style={[base.flexContainerRow, spacing.marginBottom50]}>
         <Text style={typography.screenHeading}>New Transaction</Text>
         <GoBackIcon navigation={navigation} />
       </View>
-      <Text style={[spacing.marginBottom10, typography.overDraft]}>
+      <Text
+        style={[spacing.marginBottom10, typography.overDraft, colors.darkGrey]}>
         Transaction type
       </Text>
       <View style={spacing.marginBottom20}>
@@ -70,7 +71,12 @@ const NewTransaction = props => {
         />
       </View>
       <ScrollView>
-        <Text style={[spacing.marginBottom10, typography.overDraft]}>
+        <Text
+          style={[
+            spacing.marginBottom10,
+            typography.overDraft,
+            colors.darkGrey,
+          ]}>
           Amount
         </Text>
         <TextInput
@@ -82,7 +88,14 @@ const NewTransaction = props => {
           }}
           placeholderTextColor="#EFEFEF"
         />
-        <Text style={[spacing.marginBottom10, typography.overDraft]}>Date</Text>
+        <Text
+          style={[
+            spacing.marginBottom10,
+            typography.overDraft,
+            colors.darkGrey,
+          ]}>
+          Date
+        </Text>
         <TextInput
           style={form.input}
           placeholder={'yyyy-mm-dd'}
@@ -92,7 +105,7 @@ const NewTransaction = props => {
           }}
           placeholderTextColor="#EFEFEF"
         />
-        <Text style={[spacing.marginBottom10, typography.overDraft]}>
+        <Text style={[spacing.marginBottom10, typography.overDraft, colors.darkGrey]}>
           Short description
         </Text>
         <TextInput

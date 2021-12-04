@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 // Styles
-import {base, spacing, typography} from '../../styles/main';
+import {base, colors, spacing, typography} from '../../styles/main';
 
 const Transaction = ({transaction}) => {
   const ordinal_suffix_of = i => {
@@ -57,7 +57,7 @@ const Transaction = ({transaction}) => {
         <Text style={typography.transactionDescription}>
           {transaction.description}
         </Text>
-        <Text>{formattedDate}</Text>
+        <Text style={colors.darkGrey}>{formattedDate}</Text>
       </View>
       <Text style={balanceModifier}>{formattedBalance}</Text>
     </View>

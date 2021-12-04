@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 const appTheme = {
   colors: {
@@ -56,6 +56,11 @@ const base = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
+  },
+
+  iosMargin: {
+    marginLeft: Platform.OS === 'ios' ? 20 : 0,
+    marginRight: Platform.OS === 'ios' ? 20 : 0,
   },
 });
 
@@ -171,4 +176,18 @@ const form = StyleSheet.create({
   },
 });
 
-export {base, typography, partials, spacing, appTheme, form};
+const colors = StyleSheet.create({
+  offWhite: {
+    color: '#FAF9F6',
+  },
+
+  lightGrey: {
+    color: '#D3D3D3',
+  },
+
+  darkGrey: {
+    color: '#A9A9A9',
+  },
+});
+
+export {base, typography, partials, spacing, appTheme, form, colors};

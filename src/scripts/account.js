@@ -130,11 +130,8 @@ const checkBalanceAmount = (updatedBalance, overdraft, goalBalance) => {
     Alert.alert('You have now entered your agreed overdraft');
   }
 
-  console.log(goalBalance, updatedBalance);
-
   // Check if balance is >= saving goal
   if (updatedBalance >= goalBalance) {
-    console.log('you have hit your goal');
     Alert.alert(
       'Congratulations!',
       `You've reached your savings goal of £${goalBalance}, you money saving legend!`,
