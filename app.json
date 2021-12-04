@@ -1,4 +1,9 @@
 {
   "name": "saver",
-  "displayName": "saver"
+  "displayName": "saver",
+  "expo": {
+    "name": "saver",
+    "slug": "saver",
+    "sdkVersion": "43.0.0"
+  }
 }

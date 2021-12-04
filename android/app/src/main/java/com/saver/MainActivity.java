@@ -1,4 +1,6 @@
 package com.saver;
+import expo.modules.ReactActivityDelegateWrapper;
+import com.facebook.react.ReactActivityDelegate;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
@@ -19,5 +21,12 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     SplashScreen.show(this);  // here
     super.onCreate(savedInstanceState);
+  }
+
+  @Override
+  protected ReactActivityDelegate createReactActivityDelegate() {
+    return new ReactActivityDelegateWrapper(this,
+      new ReactActivityDelegate(this, getMainComponentName())
+    );
   }
 }

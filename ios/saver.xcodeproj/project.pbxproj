@@ -18,6 +18,8 @@
 		4C665EDE438A4EFD8F7A2A6F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7757B3DE429B4E71A87BA153 /* SimpleLineIcons.ttf */; };
 		4D787B2D150ED746D1569460 /* libPods-saver-saverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AE5BE7FD69420C64DB07A6 /* libPods-saver-saverTests.a */; };
 		58581AE52AE5D2924DCA50A8 /* libPods-saver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B71A84F5299E49E6DEABFA7 /* libPods-saver.a */; };
+		5C8EC824682ADF06738659D4 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E04B85F2E390C7E688AC5 /* ExpoModulesProvider.swift */; };
+		750E90E814859D4FE7B2BAEF /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2F0DF95AC5F427CE8CDCA /* ExpoModulesProvider.swift */; };
 		7F1D912DDE89438EA248E5A6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 280D5D61352C4216B2AD180A /* Entypo.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8DD5C4BA671349D7A8BB4946 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE83049D14AB4505A54E65A3 /* MaterialCommunityIcons.ttf */; };
@@ -47,6 +49,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* saverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = saverTests.m; sourceTree = "<group>"; };
 		01C3C549001A4B52A1A2CE3D /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		0A8E04B85F2E390C7E688AC5 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-saver-saverTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		0B71A84F5299E49E6DEABFA7 /* libPods-saver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-saver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = saver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = saver/AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		7757B3DE429B4E71A87BA153 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = saver/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89DF32D5C97848B1AEE12B8B /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		96B2F0DF95AC5F427CE8CDCA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-saver/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		B0A7093673424DED80CE63CC /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		B5283126288BC1AE71D1BABD /* Pods-saver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-saver.debug.xcconfig"; path = "Target Support Files/Pods-saver/Pods-saver.debug.xcconfig"; sourceTree = "<group>"; };
 		B6127F71920E4BA6B7E00AB3 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7ACCB98A22E16453EEDC60BD /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				9922B6F760BAC037AE26BF9B /* saver */,
+				C7701FBB2DA57D37E81BE0A9 /* saverTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2BD85D8FDCE299B005A6F50D /* Pods */,
 				8F993141658444199B4BB853 /* Resources */,
+				7ACCB98A22E16453EEDC60BD /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -202,6 +216,22 @@
 				1BBCC46988BC456F962E4E96 /* Zocial.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		9922B6F760BAC037AE26BF9B /* saver */ = {
+			isa = PBXGroup;
+			children = (
+				96B2F0DF95AC5F427CE8CDCA /* ExpoModulesProvider.swift */,
+			);
+			name = saver;
+			sourceTree = "<group>";
+		};
+		C7701FBB2DA57D37E81BE0A9 /* saverTests */ = {
+			isa = PBXGroup;
+			children = (
+				0A8E04B85F2E390C7E688AC5 /* ExpoModulesProvider.swift */,
+			);
+			name = saverTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* saverTests.m in Sources */,
+				5C8EC824682ADF06738659D4 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +515,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				750E90E814859D4FE7B2BAEF /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +540,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = saverTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +564,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = saverTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -789,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
