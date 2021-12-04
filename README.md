@@ -13,6 +13,11 @@ yarn install
 ## Usage
 
 ```python
+
+Get a simulator / debug device running:
+
+- https://reactnative.dev/docs/running-on-device
+
 Get real data for the app:
 
 - There is a data.json file located within json/ at the project root
