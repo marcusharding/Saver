@@ -62,7 +62,7 @@ const NewTransaction = props => {
         style={[spacing.marginBottom10, typography.overDraft, colors.darkGrey]}>
         Transaction type
       </Text>
-      <View style={spacing.marginBottom20}>
+      <View style={spacing.marginBottom100}>
         <DropDownSelector
           types={types}
           setTypes={setTypes}
