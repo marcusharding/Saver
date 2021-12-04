@@ -19,7 +19,7 @@ export const getUpdatedAccountBalance = (
   type,
   amount,
   balance,
-  overDraft,
+  overdraft,
   goalBalance,
 ) => {
   let updatedBalance = balance;
@@ -28,7 +28,8 @@ export const getUpdatedAccountBalance = (
     if (
       // Check acount balance against different conditions
       checkBalanceAmount(
-        parseFloat(updatedBalance) - parseFloat(amount),
+        parseFloat(updatedBalance) + parseFloat(amount),
+        overdraft,
         goalBalance,
       )
     ) {
@@ -42,7 +43,8 @@ export const getUpdatedAccountBalance = (
       // Check acount balance against different conditions
       checkBalanceAmount(
         parseFloat(updatedBalance) - parseFloat(amount),
-        overDraft,
+        overdraft,
+        goalBalance,
       )
     ) {
       updatedBalance = parseFloat(updatedBalance) - parseFloat(amount);
@@ -112,8 +114,8 @@ const validateDate = date => {
 
 // Checks on the account balance to either stop user going too overdraft
 // or alert the user of significant balance changes
-const checkBalanceAmount = (updatedBalance, overDraft, goalBalance) => {
-  const negativeOverdraft = -Math.abs(overDraft);
+const checkBalanceAmount = (updatedBalance, overdraft, goalBalance) => {
+  const negativeOverdraft = -Math.abs(overdraft);
 
   // Check if new balance is > allowed overdraft
   if (negativeOverdraft > updatedBalance) {
@@ -128,11 +130,14 @@ const checkBalanceAmount = (updatedBalance, overDraft, goalBalance) => {
     Alert.alert('You have now entered your agreed overdraft');
   }
 
+  console.log(goalBalance, updatedBalance);
+
   // Check if balance is >= saving goal
   if (updatedBalance >= goalBalance) {
     console.log('you have hit your goal');
     Alert.alert(
-      `Congrats you've reached your goal of £${goalBalance} you money saving legend!`,
+      'Congratulations!',
+      `You've reached your savings goal of £${goalBalance}, you money saving legend!`,
     );
   }
 
