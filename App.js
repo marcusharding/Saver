@@ -33,7 +33,7 @@ const App = () => {
       BackgroundColor.setColor('#121212');
     }
     // Insert link to hosted json data here
-    fetchData('https://jsonkeeper.com/b/YTHA').then(response => {
+    fetchData('https://jsonkeeper.com/b/P9LQ').then(response => {
       setData(response);
     }, setInitializing(false));
   }, [setInitializing]);

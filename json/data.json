@@ -4,10 +4,10 @@
     "goalBalance": 4000,
     "transactions": [
       {
-        "type": "deposit",
-        "description": "Money for gig tickets",
-        "date": "2021-11-01",
-        "amount": 60
+        "type": "withdrawel",
+        "description": "Money for PS5",
+        "date": "2021-10-10",
+        "amount": 502.51
       },
       {
         "type": "withdrawel",
@@ -23,6 +23,12 @@
       },
       {
         "type": "deposit",
+        "description": "Money for gig tickets",
+        "date": "2021-11-01",
+        "amount": 60
+      },
+      {
+        "type": "deposit",
         "description": "Birthday money from mum",
         "date": "2021-10-15",
         "amount": 500
@@ -32,12 +38,6 @@
         "description": "Birthday money from dad",
         "date": "2021-10-15",
         "amount": 500
-      },
-      {
-        "type": "withdrawel",
-        "description": "Money for PS5",
-        "date": "2021-10-10",
-        "amount": 502.51
       },
       {
         "type": "deposit",
